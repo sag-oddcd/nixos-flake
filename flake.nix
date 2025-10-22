@@ -1,5 +1,5 @@
 {
-  description = "NixOS configuration for jf's workstation";
+  description = "Modular NixOS configuration for jf's workstation";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
@@ -28,11 +28,8 @@
         system = "x86_64-linux";
         specialArgs = { inherit inputs; };
         modules = [
-          # Hardware configuration (generated during install)
-          ./hardware-configuration.nix
-
-          # System configuration
-          ./configuration.nix
+          # Host configuration (imports all system modules)
+          ./hosts/nixos-workstation
 
           # Overlays
           ({ pkgs, ... }: {
@@ -47,7 +44,7 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.jf = import ./home.nix;
+            home-manager.users.jf = import ./home/jf;
             home-manager.extraSpecialArgs = { inherit inputs; };
           }
         ];
