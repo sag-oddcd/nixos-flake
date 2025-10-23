@@ -13,12 +13,23 @@ User has previously worked with a complete NixOS flake configuration but cannot 
 
 ## Environment Constraints
 
-**Cargo Compilation:**
-- ⚠️ **DO NOT run cargo build/install/compile commands**
-- Issue: Consistently receiving Signal 9 errors (process killed by system)
-- Cause: OOM (Out-of-Memory) in Android/Termux proot environment
-- Alternative: Use pre-built binaries (`cargo binstall`) or system packages when available
-- Context: This worktree is being worked on from Termux/Android with limited resources
+**CRITICAL: OOM/Crash Prevention (Signal 9 / Futex Errors)**
+- ⚠️ **DO NOT run these memory-intensive operations:**
+  - ❌ `cargo build/install/compile` - Always use pre-built binaries
+  - ❌ `fish_indent` - Causes immediate crash (missing or broken)
+  - ❌ `WebSearch` tool - Can trigger OOM
+  - ❌ Large `jq` operations on history.jsonl (>100KB files)
+  - ❌ Complex multi-pipe commands with multiple subshells
+  - ❌ Any command spawning multiple processes simultaneously
+- **Cause:** OOM (Out-of-Memory) in Android/Termux proot environment (limited RAM)
+- **Symptoms:** Signal 9, futex facility errors, process killed
+- **Safe alternatives:**
+  - Use `cargo binstall` instead of `cargo install`
+  - Skip fish formatting, use syntax validation only (`fish -n`)
+  - Avoid WebSearch, use WebFetch for specific URLs
+  - Use `head`/`tail` to limit jq operations
+  - Keep commands simple and sequential
+- **Context:** Running in Termux/Android proot Debian with severe memory constraints
 
 ## Search Results (Local)
 
