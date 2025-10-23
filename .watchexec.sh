@@ -20,6 +20,9 @@ Updated at: $timestamp
 
 🤖 Generated with watchexec auto-commit hook"
 
+  # Move main bookmark to current commit (required for git export)
+  jj bookmark set main -r @
+
   # Push to GitHub
   echo "Pushing to GitHub..."
   jj git push
