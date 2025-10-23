@@ -1,6 +1,4 @@
-{ config, pkgs, ... }:
-
-{
+{pkgs, ...}: {
   boot = {
     kernelParams = [
       # NVMe optimizations - disable power saving for performance
@@ -8,18 +6,18 @@
     ];
 
     # Load NVMe modules early
-    initrd.availableKernelModules = [ "nvme" ];
+    initrd.availableKernelModules = ["nvme"];
   };
 
   # Samsung NVMe-specific optimizations
   services.fstrim = {
-    enable = true;  # Weekly TRIM for SSD health
+    enable = true; # Weekly TRIM for SSD health
     interval = "weekly";
   };
 
   # NVMe monitoring tools
   environment.systemPackages = with pkgs; [
-    nvme-cli     # NVMe management utility
-    smartmontools  # SMART monitoring for NVMe
+    nvme-cli # NVMe management utility
+    smartmontools # SMART monitoring for NVMe
   ];
 }

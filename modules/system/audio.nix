@@ -1,6 +1,4 @@
-{ config, ... }:
-
-{
+_: {
   # Audio with PipeWire
   security.rtkit.enable = true;
 

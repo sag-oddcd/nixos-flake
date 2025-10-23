@@ -1,6 +1,4 @@
-{ config, pkgs, inputs, ... }:
-
-{
+{...}: {
   # System state version
   system.stateVersion = "24.11";
 
@@ -21,8 +19,8 @@
     ../../modules/system/packages.nix
 
     # Hardware modules - PC-specific
-    ../../modules/hardware/cpu-amd.nix      # AMD CPU optimizations
-    ../../modules/hardware/nvme.nix          # Samsung NVMe optimizations
-    ../../modules/hardware/gigabyte.nix      # Gigabyte motherboard
+    ../../modules/hardware/cpu-amd.nix # AMD CPU optimizations
+    ../../modules/hardware/nvme.nix # Samsung NVMe optimizations
+    ../../modules/hardware/gigabyte.nix # Gigabyte motherboard
   ];
 }

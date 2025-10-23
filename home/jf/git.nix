@@ -1,37 +1,42 @@
-{ config, pkgs, ... }:
-
-{
-  # Git
-  programs.git = {
-    enable = true;
-    userName = "jf";
-    userEmail = "jf@example.com";  # Update with your email
-    extraConfig = {
-      init.defaultBranch = "main";
-      pull.rebase = true;
-      core.editor = "nvim";
+_: {
+  programs = {
+    # Git
+    git = {
+      enable = true;
+      settings = {
+        user = {
+          name = "jf";
+          email = "jf@example.com"; # Update with your email
+        };
+        init.defaultBranch = "main";
+        pull.rebase = true;
+        core.editor = "nvim";
+      };
     };
+
+    # Delta (Git diff viewer)
     delta = {
       enable = true;
+      enableGitIntegration = true; # Explicitly enable Git integration
       options = {
         navigate = true;
         line-numbers = true;
         side-by-side = true;
       };
     };
-  };
 
-  # Jujutsu (Git alternative)
-  programs.jujutsu = {
-    enable = true;
-    settings = {
-      user = {
-        name = "jf";
-        email = "jf@example.com";  # Update with your email
+    # Jujutsu (Git alternative)
+    jujutsu = {
+      enable = true;
+      settings = {
+        user = {
+          name = "jf";
+          email = "jf@example.com"; # Update with your email
+        };
       };
     };
-  };
 
-  # GitUI
-  programs.gitui.enable = true;
+    # GitUI
+    gitui.enable = true;
+  };
 }

@@ -11,6 +11,15 @@ User has previously worked with a complete NixOS flake configuration but cannot 
 - WSL instances unavailable (stored on Windows partition)
 - Potential locations in Windows Documents, Desktop, or WSL rootfs
 
+## Environment Constraints
+
+**Cargo Compilation:**
+- ⚠️ **DO NOT run cargo build/install/compile commands**
+- Issue: Consistently receiving Signal 9 errors (process killed by system)
+- Cause: OOM (Out-of-Memory) in Android/Termux proot environment
+- Alternative: Use pre-built binaries (`cargo binstall`) or system packages when available
+- Context: This worktree is being worked on from Termux/Android with limited resources
+
 ## Search Results (Local)
 
 ### Completed Searches ✅

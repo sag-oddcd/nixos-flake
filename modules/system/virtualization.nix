@@ -1,9 +1,7 @@
-{ config, ... }:
+_: {
+  # Docker
+  virtualisation.docker.enable = true;
 
-{
-  # Docker with NVIDIA support
-  virtualisation.docker = {
-    enable = true;
-    enableNvidia = true;
-  };
+  # NVIDIA Container Toolkit (for Docker GPU access)
+  hardware.nvidia-container-toolkit.enable = true;
 }

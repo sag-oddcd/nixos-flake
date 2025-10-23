@@ -1,10 +1,8 @@
-{ config, pkgs, inputs, ... }:
-
-{
+{pkgs, ...}: {
   # Neovim
   programs.neovim = {
     enable = true;
-    package = pkgs.neovim;  # Use nightly from overlay
+    package = pkgs.neovim; # Nightly from neovim-nightly-overlay
     defaultEditor = true;
     viAlias = true;
     vimAlias = true;
@@ -14,9 +12,10 @@
   # Development packages
   home.packages = with pkgs; [
     # === Rust ecosystem ===
-    (rust-bin.selectLatestNightlyWith (toolchain: toolchain.default.override {
-      extensions = [ "rust-src" "rust-analyzer" "clippy" ];
-    }))
+    (rust-bin.selectLatestNightlyWith (toolchain:
+      toolchain.default.override {
+        extensions = ["rust-src" "rust-analyzer" "clippy"];
+      }))
     cargo-binstall
     cargo-update
     cargo-edit
@@ -24,19 +23,29 @@
 
     # === Node.js/Bun ===
     bun
-    nodejs_22
+    nodejs # Version-agnostic (latest)
     pnpm
 
     # === Python ===
     uv
-    python312
+    python3 # Version-agnostic (latest - currently 3.14.0rc2)
 
     # === Go ===
     go
 
     # === Zig ===
     zig
-    zls  # Zig LSP
+    zls # Zig LSP
+
+    # === Kotlin ===
+    kotlin-language-server
+
+    # === Haskell ===
+    ghc # Haskell compiler
+    cabal-install # Haskell build tool
+
+    # === C# ===
+    dotnet-sdk
 
     # === Build tools ===
     cmake
@@ -46,22 +55,33 @@
 
     # === LSP servers ===
     lua-language-server
-    clang-tools  # clangd
+    clang-tools # clangd
     omnisharp-roslyn
     nodePackages.typescript-language-server
-    nodePackages.vscode-langservers-extracted  # JSON/HTML/CSS
+    nodePackages.vscode-langservers-extracted # JSON/HTML/CSS
     yaml-language-server
     bash-language-server
-    marksman  # Markdown LSP
+    marksman # Markdown LSP
+    nixd # Nix LSP
+    taplo # TOML LSP + formatter
 
     # === Formatters & Linters ===
-    biome          # JS/TS/JSON linter+formatter
-    dprint         # Multi-language formatter
-    stylua         # Lua formatter
-    ruff           # Python linter+formatter
-    shfmt          # Shell formatter
-    shellcheck     # Shell linter
-    yamllint       # YAML linter
+    biome # JS/TS/JSON linter+formatter
+    dprint # Multi-language formatter
+    stylua # Lua formatter
+    ruff # Python linter+formatter
+    rumdl # Markdown linter+formatter (Rust)
+    shfmt # Shell formatter
+    shellcheck # Shell linter
+    yamllint # YAML linter
+    go-tools # Go linter (includes staticcheck)
+    hlint # Haskell linter
+    ormolu # Haskell formatter
+    nodePackages.stylelint # CSS linter
+
+    # === Package Managers ===
+    luarocks # Lua package manager
+    conan # C/C++ package manager
 
     # === Cloud & AI ===
     awscli2
