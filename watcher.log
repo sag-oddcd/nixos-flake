@@ -1,19 +1,6 @@
 [Running: ./.watchexec.sh]
 Changes detected, committing...
-Working copy  (@) now at: zkuouqtt d964bb01 chore: Auto-commit flake changes
-Parent commit (@-)      : sswnovlu 28b417b5 main | chore: Auto-commit flake changes
-Moved 1 bookmarks to zkuouqtt abb89ae9 main* | chore: Auto-commit flake changes
-Pushing to GitHub...
-Changes to push to origin:
-  Move forward bookmark main from 28b417b52bb9 to 36daf0f3431f
-Warning: The working-copy commit in workspace 'default' became immutable, so a new commit has been created on top of it.
-Working copy  (@) now at: vqvvqmno 21aa459d (empty) (no description set)
-Parent commit (@-)      : zkuouqtt 36daf0f3 main | chore: Auto-commit flake changes
-✓ Changes committed and pushed successfully
-[Command was successful]
-[Running: ./.watchexec.sh]
-Changes detected, committing...
-Working copy  (@) now at: vqvvqmno adffc174 chore: Auto-commit flake changes
-Parent commit (@-)      : zkuouqtt 36daf0f3 main | chore: Auto-commit flake changes
-Moved 1 bookmarks to vqvvqmno b9cd8114 main* | chore: Auto-commit flake changes
+Working copy  (@) now at: ruoyyotz 35d76258 chore: Auto-commit flake changes
+Parent commit (@-)      : vqvvqmno b1a96c59 main | chore: Auto-commit flake changes
+Moved 1 bookmarks to ruoyyotz 4540b8f0 main* | chore: Auto-commit flake changes
 Pushing to GitHub...
