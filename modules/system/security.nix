@@ -19,14 +19,22 @@
 
   services.gnome.gnome-keyring.enable = true;
 
-  # Display Manager - greetd
+  # Display Manager - greetd with tuigreet
   services.greetd = {
     enable = true;
     settings = {
       default_session = {
-        command = "${pkgs.greetd}/bin/agreety --cmd fish";
+        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd fish";
         user = "greeter";
       };
     };
+  };
+
+  # PAM fingerprint authentication
+  services.fprintd.enable = true;
+  security.pam.services = {
+    login.fprintAuth = true;
+    sudo.fprintAuth = true;
+    greetd.fprintAuth = true;
   };
 }

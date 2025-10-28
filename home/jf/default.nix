@@ -18,11 +18,12 @@
 
   # Import all user modules
   imports = [
-    ./shell.nix # Fish, starship, zoxide, atuin, fzf
+    ./shell.nix # Fish, starship, zoxide, atuin, skim
     ./git.nix # Git, jujutsu, gitui, delta
     ./cli-tools.nix # All Rust-native CLI tools
     ./development.nix # Neovim, LSPs, dev tools
     ./desktop.nix # Wezterm, browsers, GUI apps
+    ./theme.nix # GTK/Qt theming, BeautyLine icons
   ];
 
   # XDG directories

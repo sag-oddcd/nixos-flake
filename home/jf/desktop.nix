@@ -32,7 +32,8 @@
     # === Wayland Tools ===
     wayshot # Screenshots
     waylock # Screen lock
-    wl-clipboard # Clipboard
+    wl-clipboard # Clipboard (low-level)
+    clapboard # Clipboard manager with history (Rust)
     wlr-randr # Display config
 
     # === Productivity Tools ===
@@ -43,11 +44,30 @@
     _1password-cli # CLI (renamed from _1password)
     _1password-gui # GUI
 
+    # === Communication ===
+    discord
+    whatsapp-for-linux
+    kdeconnect
+
     # === Media ===
     glide-media-player # Rust-based media player (GTK + GStreamer)
+    strawberry # Music player with TIDAL support (Qt6 GUI)
+    termusic # Local music player (Rust TUI)
+    twitch-tui # Twitch chat TUI (Rust)
+    newsboat # RSS reader
+
+    # === Email ===
+    himalaya # Email client (Rust TUI)
+
+    # === Graphics ===
+    gimp # Image editor
 
     # === System Utilities ===
     # ventoy-full # Removed: marked as insecure (binary blobs)
+
+    # === Fonts ===
+    birdfont # Font editor
+    (nerdfonts.override {fonts = ["FiraCode" "JetBrainsMono" "Hack"];})
   ];
 
   # GTK theming
@@ -58,4 +78,7 @@
       package = pkgs.gnome-themes-extra;
     };
   };
+
+  # Fonts
+  fonts.fontconfig.enable = true;
 }

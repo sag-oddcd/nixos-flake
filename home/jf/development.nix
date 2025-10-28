@@ -38,20 +38,26 @@
     zls # Zig LSP
 
     # === Kotlin ===
+    kotlin # kotlinc compiler
     kotlin-language-server
 
     # === Haskell ===
     ghc # Haskell compiler
     cabal-install # Haskell build tool
 
+    # === C/C++ ===
+    clang # Clang compiler
+    llvmPackages.libcxx # C++ standard library
+
     # === C# ===
     dotnet-sdk
 
     # === Build tools ===
+    buck2 # Meta's build system
     cmake
+    ninja # Fast build executor (use with cmake -G Ninja)
     gnumake
-    meson
-    ninja
+    # meson # Removed per user request
 
     # === LSP servers ===
     lua-language-server

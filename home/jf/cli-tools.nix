@@ -64,6 +64,15 @@
     du-dust # du replacement
     dua # disk usage analyzer
 
+    # Archive/compression tools
+    libarchive # bsdtar
+    archivefs # Mount archives as filesystems (Go)
+    backhand # SquashFS tools (Rust)
+
+    # System info
+    macchina # System info (Rust)
+    onefetch # Git repo info (Rust)
+
     # === System Utilities ===
     htop # System monitor (fallback)
     ncdu # Disk usage
@@ -71,11 +80,18 @@
     zip
     p7zip
 
+    # === Input Tools ===
+    kanata # Keyboard remapper (Rust)
+
     # === Network tools ===
     wget
     curl
+    xh # Modern HTTP client (Rust, httpie alternative)
     rsync
     openssh
+    nmap # Network scanner
+    rustscan # Fast port scanner (Rust, uses nmap)
+    bandwhich # Bandwidth monitor by process (Rust)
 
     # === Media ===
     mpv

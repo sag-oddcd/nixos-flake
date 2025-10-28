@@ -10,7 +10,7 @@
       modesetting.enable = true;
       powerManagement.enable = false; # Can cause issues
       powerManagement.finegrained = false;
-      open = false; # Use proprietary driver
+      open = true; # Open kernel modules (RTX 3080 Ti supported)
       nvidiaSettings = true;
       package = config.boot.kernelPackages.nvidiaPackages.stable;
     };
@@ -32,5 +32,13 @@
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1"; # Electron apps on Wayland
     WLR_NO_HARDWARE_CURSORS = "1"; # Fix cursor on NVIDIA
+    GBM_BACKEND = "nvidia-drm"; # GBM backend for Wayland
+    __GLX_VENDOR_LIBRARY_NAME = "nvidia"; # GLX vendor library
+    LIBVA_DRIVER_NAME = "nvidia"; # Hardware video acceleration
   };
+
+  # Boot parameters for better suspend/resume
+  boot.kernelParams = [
+    "nvidia.NVreg_PreserveVideoMemoryAllocations=1"
+  ];
 }

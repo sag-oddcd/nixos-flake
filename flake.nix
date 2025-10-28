@@ -62,6 +62,7 @@
               rust-overlay.overlays.default
               neovim-nightly-overlay.overlays.default
               chaotic-nyx.overlays.default
+              (import ./overlays/beautyline-garuda-overlay.nix)
             ];
           })
 

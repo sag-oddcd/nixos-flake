@@ -56,8 +56,8 @@ _: {
       };
     };
 
-    # FZF fuzzy finder
-    fzf = {
+    # Skim fuzzy finder (Rust alternative to fzf)
+    skim = {
       enable = true;
       enableFishIntegration = true;
     };
